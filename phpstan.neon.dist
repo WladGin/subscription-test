@@ -1,0 +1,31 @@
+includes:
+    - ./vendor/phpstan/phpstan-deprecation-rules/rules.neon
+#    - ./vendor/phpstan/phpstan-strict-rules/rules.neon
+    - ./vendor/nesbot/carbon/extension.neon
+    - ./vendor/larastan/larastan/extension.neon
+    - ./phpstan-inaccuracies.neon
+
+parameters:
+    parallel:
+        processTimeout: 1200.0
+
+    stubFiles:
+        - phpstan-annotation.php.stub
+
+    paths:
+        - app
+        - config
+        - database
+        - public
+        - resources
+        - routes
+
+    # The level 9 is the highest level
+    level: 5
+
+    excludePaths:
+        - *.php.stub
+        - *.stub
+        - resources/*/*.blade.php
+
+    reportUnmatchedIgnoredErrors: false
