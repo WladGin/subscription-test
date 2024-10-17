@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         //
     })
+    ->withSchedule(new \App\Console\ScheduleHandler())
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
