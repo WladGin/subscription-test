@@ -61,11 +61,6 @@ grumphp:
       triggered_by: [ 'php' ]
       memory_limit: "-1"
       use_grumphp_paths: true
-    pest:
-      config_file: ~
-      testsuite: ~
-      group: [ ]
-      always_execute: false
     securitychecker_enlightn:
       lockfile: ./composer.lock
       run_always: true

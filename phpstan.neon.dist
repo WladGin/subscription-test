@@ -1,9 +1,8 @@
 includes:
     - ./vendor/phpstan/phpstan-deprecation-rules/rules.neon
-#    - ./vendor/phpstan/phpstan-strict-rules/rules.neon
     - ./vendor/nesbot/carbon/extension.neon
-    - ./vendor/larastan/larastan/extension.neon
-    - ./phpstan-inaccuracies.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./phpstan-baseline.neon
 
 parameters:
     parallel:
@@ -14,6 +13,7 @@ parameters:
 
     paths:
         - app
+        - bootstrap
         - config
         - database
         - public
@@ -23,9 +23,12 @@ parameters:
     # The level 9 is the highest level
     level: 5
 
+    ignoreErrors:
+
     excludePaths:
+        - bootstrap/cache/*
         - *.php.stub
         - *.stub
         - resources/*/*.blade.php
 
-    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true
